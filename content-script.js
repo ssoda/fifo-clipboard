@@ -3,7 +3,10 @@ console.log("hello injected!");
 var fifoList = [];
 
 document.addEventListener('copy', (event) => {
-  fifoList.push(event.target.value);
+  var copiedContent = event.target.value || event.target.textContent;
+  if (copiedContent !== "") {
+    fifoList.push(copiedContent);
+  }
 });
 
 document.addEventListener('paste', (event) => {
